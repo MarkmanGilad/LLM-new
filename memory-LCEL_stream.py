@@ -25,16 +25,18 @@ chain = prompt | chat | parser
 history = ChatMessageHistory()
 while True:
     text = input("Enter question: \n")
-
+    print()
     history.add_user_message(text)
 
-    response = chain.invoke(
+    stream = chain.stream(
         {
             "messages": history.messages 
         })
-    print(response)
-            
+    response = ""
+    for chunk in stream:
+        print(chunk, end="")
+        response = response + chunk
+    print()        
     history.add_ai_message(response)
     print("#################################################")
-    print(history)
-    print("#################################################")
+    
