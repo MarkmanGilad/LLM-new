@@ -11,6 +11,14 @@ langchain-openai = "*"
 streamlit = "*"
 azure-ai-documentintelligence = "*"
 streamlit-pdf-viewer = "*"
+wikipedia = "*"
+langsmith = "*"
+langchain-community = "*"
+tavily-python = "*"
+faiss-cpu = "*"
+langchainhub = "*"
+langchain-pinecone = "*"
+pypdf = "*"
 
 [dev-packages]
 
