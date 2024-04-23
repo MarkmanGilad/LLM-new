@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-langchain = "*"
 python-dotenv = "*"
 pinecone-client = "*"
 langchain-openai = "*"
@@ -19,6 +18,10 @@ faiss-cpu = "*"
 langchainhub = "*"
 langchain-pinecone = "*"
 pypdf = "*"
+langchain = "*"
+docarray = "*"
+tiktoken = "*"
+langchain-chroma = "*"
 
 [dev-packages]
 

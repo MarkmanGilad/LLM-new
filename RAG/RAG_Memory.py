@@ -25,9 +25,9 @@ retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k
 
 llm = ChatOpenAI(model="gpt-4", temperature=0)
 
-contextualize_q_system_prompt = """Given a chat history and the latest user question \
-which might reference context in the chat history, formulate a standalone question \
-which can be understood without the chat history. Do NOT answer the question, \
+contextualize_q_system_prompt = """Given a chat history and the latest user question 
+which might reference context in the chat history, formulate a standalone question 
+which can be understood without the chat history. Do NOT answer the question, 
 just reformulate it if needed and otherwise return it as is."""
 contextualize_q_prompt = ChatPromptTemplate.from_messages(
     [
@@ -38,10 +38,10 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 )
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
-qa_system_prompt = """You are an assistant for question-answering tasks. \
-Use the following pieces of retrieved context to answer the question. \
-If you don't know the answer, just say that you don't know. \
-Use ten sentences maximum and keep the answer concise.\
+qa_system_prompt = """You are an assistant for question-answering tasks. 
+Use the following pieces of retrieved context to answer the question. 
+If you don't know the answer, just say that you don't know. 
+Use ten sentences maximum and keep the answer concise.
 
 {context}"""
 qa_prompt = ChatPromptTemplate.from_messages(

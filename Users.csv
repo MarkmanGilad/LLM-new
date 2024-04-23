@@ -1,5 +1,0 @@
-index,first_name,last_name,username,password,email,admin,id,AddressId
-0,Gilad,Markman,Gilad123,Gilad123,gilad@gmail.com,1,,1.0
-1,Orly,Markman,Orly123,123,,1,,1.0
-2,Ziv,Yahalom,Ziv,ziv111,ziv@walla.com,0,,
-3,Yoav,Cohen,yoav1,1111,yoav@gmail.com,0,,

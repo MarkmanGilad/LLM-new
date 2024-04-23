@@ -26,6 +26,6 @@ conversation = LLMChain(
     memory=memory
 )
 # Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
-response = conversation({"question": "explain what is Reinforcement learning"})
+response = conversation({"question": "please summarize the Israel supreem court decision appeal number 8535/01 ליפשיץ נ' מדינת ישראל ומשרד הבריאות"})
 print(response['text'])
 print(response)

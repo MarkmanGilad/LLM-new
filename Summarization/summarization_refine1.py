@@ -5,15 +5,15 @@ import os
 from bidi.algorithm import get_display
 
 from langchain.chains.summarize import load_summarize_chain
-from langchain_text_splitters import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts import PromptTemplate
 import torch
 
 load_dotenv()
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"]=os.environ.get("LANGCHAIN_API_KEY")
+# os.environ["LANGCHAIN_TRACING_V2"] = "true"
+# os.environ["LANGCHAIN_API_KEY"]=os.environ.get("LANGCHAIN_API_KEY")
 #endregion
 
 #region ######## load & split pdf ########################
@@ -25,7 +25,7 @@ file_path = os.path.join(path, file_name)
 
 loader = PyPDFLoader(file_path)
 docs = loader.load()
-text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
+text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
     chunk_size=10000, chunk_overlap=0
 )
 split_docs = text_splitter.split_documents(docs)
@@ -64,7 +64,7 @@ refine_prompt = PromptTemplate.from_template(refine_template)
 
 #region ############### LLM & chain ###########################
 
-llm = ChatOpenAI(api_key=os.environ["OPENAI_API_KEY"],temperature=0, model='gpt-4-turbo')
+llm = ChatOpenAI(temperature=0, model='gpt-4-turbo')
 chain = load_summarize_chain(
     llm=llm, 
     chain_type="refine", 

@@ -3015,5 +3015,6 @@
             "markers": "python_version >= '3.8'",
             "version": "==3.18.1"
         }
-    }
+    },
+    "develop": {}
 }
