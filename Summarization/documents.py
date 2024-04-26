@@ -20,11 +20,11 @@ load_dotenv()
 
 #region ######## load & split pdf ########################
 
-file_name = "hazot.pdf"
-project = "hazot"
-path = f"Data/{project}"
-file_path = os.path.join(path, file_name)
-
+# file_name = "hazot.pdf"
+# project = "hazot"
+# path = f"Data/{project}"
+# file_path = os.path.join(path, file_name)
+file_path = "Data\wrongfull-death\wrongFullDethHeb.pdf"
 loader = AzureAIDocumentIntelligenceLoader(
         api_endpoint=os.environ.get("AZURE_API_ENDPOINT"), 
         api_key=os.environ.get("AZURE_API_KEY"), 
@@ -33,15 +33,15 @@ loader = AzureAIDocumentIntelligenceLoader(
         mode="markdown", #single, page, or markdown. 
 )
 docs = loader.load()
-torch.save(docs,"Output/hazot2.pth")
-# docs = torch.load("Output/hazot2.pth")
+torch.save(docs,"Output/WrongfullDeath2.pth")
+# docs = torch.load("Output\WrongfullDeath.pth")
 
-with open ("Output/hazot2.txt", "w") as f:
-    f.write(docs)
+with open ("Output/WrongfullDeath2.md", "w", encoding="utf-8") as f:
+    f.write(docs[0].page_content)
 
 exit()
 text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000, chunk_overlap=0
+    chunk_size=4000, chunk_overlap=0
 )
 split_docs = text_splitter.split_documents(docs)
 torch.save("Output/hazot2_split.pth")

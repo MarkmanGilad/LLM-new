@@ -22,6 +22,7 @@ langchain = "*"
 docarray = "*"
 tiktoken = "*"
 langchain-chroma = "*"
+langchain-anthropic = "*"
 
 [dev-packages]
 

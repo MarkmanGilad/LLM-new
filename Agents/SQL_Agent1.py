@@ -52,6 +52,6 @@ while True:
     txt = input ("Enter your prompt:\n")
     response = agent_with_chat_history.invoke({"input": txt}, config={"configurable": {"session_id": "<foo>"}}, )
     print(response["output"])
-    # memory.add_user_message(txt)
-    # memory.add_ai_message(response["output"])
+    memory.add_user_message(txt)
+    memory.add_ai_message(response["output"])
 

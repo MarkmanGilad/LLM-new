@@ -7,8 +7,9 @@ import sqlite3
 from langchain_core.prompts import (
     ChatPromptTemplate, SystemMessagePromptTemplate, PromptTemplate, 
     MessagesPlaceholder, HumanMessagePromptTemplate)
-from langchain.agents import create_tool_calling_agent, create_structured_chat_agent, create_react_agent
-from langchain.agents import AgentExecutor
+from langchain.agents import (
+    create_tool_calling_agent, create_structured_chat_agent, 
+    create_react_agent, AgentExecutor)
 from langchain import hub
 import pprint
 from langchain.memory import ChatMessageHistory
